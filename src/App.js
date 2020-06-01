@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Post from './post/Post'
+import { generateFakePost } from './utils'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const NUMBER_OF_POSTS = 3;
+
+class App extends Component {
+
+  state = {
+    posts: []
+  }
+
+  componentDidMount() {
+    const posts = [];
+
+    for (let i = 0; i < NUMBER_OF_POSTS; i++) {
+      posts.push(generateFakePost())
+    }
+
+    this.setState({ posts });
+  }
+
+  render() {
+    return (
+      <div className='container'>
+        {this.state.posts.map((post, i) => <Post key={i} data={post} />)}
+      </div>
+    );
+  }
 }
 
 export default App;

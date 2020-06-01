@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Post from './post/Post'
+import { generateFakePost } from './utils'
+
+const NUMBER_OF_POSTS = 3;
 
 class App extends Component {
 
@@ -11,10 +14,8 @@ class App extends Component {
   componentDidMount() {
     const posts = [];
 
-    for (let i = 0; i < 1; i++) {
-      posts.push({
-        i
-      })
+    for (let i = 0; i < NUMBER_OF_POSTS; i++) {
+      posts.push(generateFakePost())
     }
 
     this.setState({ posts });
@@ -22,8 +23,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.posts.map(post => <Post data={post} />)}
+      <div className='container'>
+        {this.state.posts.map((post, i) => <Post key={i} data={post} />)}
       </div>
     );
   }

@@ -1,4 +1,9 @@
-.container {
+.Container {
+	display: flex;
+	flex-direction: column;
+}
+
+.Posts {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

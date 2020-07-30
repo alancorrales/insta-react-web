@@ -1,12 +1,13 @@
-.Navbar {
+.navbar {
 	display: flex;
 	align-items: center;
-	background-color: lightgrey;
+	background-color: white;
+	border-bottom: 1px solid #dbdbdb;
 	padding: 8px 16px;
 	margin-bottom: 32px;
 }
 
-.Navbar > img {
+.navbar > img {
 	margin-right: 16px;
 }
 

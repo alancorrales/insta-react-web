@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+
 import './App.css';
-import Post from './post/Post'
-import Navbar from './navbar/Navbar'
-import { generateFakePost } from './utils'
+
+import { generateFakePost } from './App.utils';
+
+import Navbar from './components/navbar/navbar.component';
+import Post from './components/posts/posts.component';
 
 const NUMBER_OF_POSTS = 10;
 
@@ -24,9 +27,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className='Container'>
+      <div className='container'>
         <Navbar />
-        <div className='Posts'>
+        <div className='posts'>
           {this.state.posts.map((post, i) => <Post key={i} data={post} />)}
         </div>
       </div>

@@ -1,16 +1,25 @@
 .navbar {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	background-color: white;
 	border-bottom: 1px solid #dbdbdb;
-	padding: 8px 16px;
 	margin-bottom: 32px;
-}
+	height: 48px;
+	width: 100%;
 
-.navbar > img {
-	margin-right: 16px;
-}
+	.navbar-content {
+		width: 614px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
-h3 {
-	margin: 0;
+		.brand {
+			font-family: 'Lobster', cursive;
+		}
+
+		.profile-picture {
+			border-radius: 50%;
+		}
+	}
 }

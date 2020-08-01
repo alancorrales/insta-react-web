@@ -1,0 +1,25 @@
+.post {
+	border: 1px solid lightgrey;
+	width: 614px;
+	margin-bottom: 32px;
+
+	.header {
+		display: flex;
+		align-items: center;
+		padding: 8px 16px;
+
+		.avatar {
+			border-radius: 50%;
+			margin-right: 16px;
+		}
+	}
+
+	.footer {
+		padding: 16px;
+
+		.author {
+			font-weight: bold;
+			margin-right: 8px;
+		}
+	}
+}

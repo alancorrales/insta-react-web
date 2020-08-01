@@ -1,35 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Post from '../../components/post/post.component';
 
-import { generateFakePost } from './../../App.utils';
-
 import './home.styles.scss';
 
-const NUMBER_OF_POSTS = 10;
+const HomePage = ({ posts }) => (
+	<div className='posts'>
+		{posts.map((post, i) => (
+			<Post key={i} data={post} />
+		))}
+	</div>
+);
 
-export default class HomePage extends React.Component {
-	state = {
-		posts: [],
+const mapStateToProps = ({ posts }) => {
+	return {
+		posts: posts.posts,
 	};
+};
 
-	componentDidMount() {
-		const posts = [];
-
-		for (let i = 0; i < NUMBER_OF_POSTS; i++) {
-			posts.push(generateFakePost(i));
-		}
-
-		this.setState({ posts });
-	}
-
-	render() {
-		return (
-			<div className='posts'>
-				{this.state.posts.map((post, i) => (
-					<Post key={i} data={post} />
-				))}
-			</div>
-		);
-	}
-}
+export default connect(mapStateToProps)(HomePage);

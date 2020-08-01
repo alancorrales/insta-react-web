@@ -14,7 +14,7 @@ const Post = ({ data: { avatarUrl, author, imageUrl, description } }) => (
 			/>
 			<p>{author}</p>
 		</div>
-		<img className='image' width='614px' src={imageUrl} alt='Main content' />
+		<img className='image' src={imageUrl} alt='Post' />
 		<div className='footer'>
 			<p>
 				<span className='author'>{author}</span>

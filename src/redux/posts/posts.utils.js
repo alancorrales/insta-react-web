@@ -11,6 +11,7 @@ export const generatePosts = (n = 10) => {
 }
 
 export const generateFakePost = (seed) => ({
+    id: seed,
     avatarUrl: faker.image.avatar(),
     author: faker.internet.userName(),
     imageUrl: `https://picsum.photos/600?random=${seed}`,

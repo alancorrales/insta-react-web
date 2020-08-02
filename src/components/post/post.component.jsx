@@ -1,8 +1,9 @@
 import React from 'react';
 
 import './post.styles.scss';
+import LikeButton from '../like-button/like-button.component';
 
-const Post = ({ data: { avatarUrl, author, imageUrl, description } }) => (
+const Post = ({ avatarUrl, author, imageUrl, description }) => (
 	<div className='post'>
 		<div className='header'>
 			<img
@@ -16,6 +17,9 @@ const Post = ({ data: { avatarUrl, author, imageUrl, description } }) => (
 		</div>
 		<img className='image' src={imageUrl} alt='Post' />
 		<div className='footer'>
+			<div className='action-icons'>
+				<LikeButton className='like-button' liked={true} />
+			</div>
 			<p>
 				<span className='author'>{author}</span>
 				<span>{description}</span>

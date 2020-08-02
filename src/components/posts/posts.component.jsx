@@ -7,8 +7,8 @@ import './posts.styles.scss';
 
 const Posts = ({ posts }) => (
 	<div className='posts'>
-		{posts.map((post, i) => (
-			<Post key={i} data={post} />
+		{posts.map((post) => (
+			<Post key={post.id} {...post} />
 		))}
 	</div>
 );

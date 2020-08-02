@@ -1,22 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Post from '../../components/post/post.component';
-
 import './posts.styles.scss';
+
+import Post from '../../components/post/post.component';
 
 const Posts = ({ posts }) => (
 	<div className='posts'>
 		{posts.map((post) => (
-			<Post key={post.id} {...post} />
+			<Post key={post.id} post={post} />
 		))}
 	</div>
 );
 
-const mapStateToProps = ({ posts }) => {
-	return {
-		posts: posts.posts,
-	};
-};
+const mapStateToProps = ({ posts }) => ({
+	posts: posts.posts,
+});
 
 export default connect(mapStateToProps)(Posts);

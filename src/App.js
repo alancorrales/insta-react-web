@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import './App.css';
-
 import Navbar from './components/navbar/navbar.component';
 import HomePage from './pages/home/home.component';
 

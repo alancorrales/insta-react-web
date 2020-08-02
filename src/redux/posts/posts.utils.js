@@ -15,5 +15,6 @@ export const generateFakePost = (seed) => ({
     avatarUrl: faker.image.avatar(),
     author: faker.internet.userName(),
     imageUrl: `https://picsum.photos/600?random=${seed}`,
-    description: faker.lorem.sentences()
+    description: faker.lorem.sentences(),
+    liked: false
 });

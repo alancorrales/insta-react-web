@@ -8,7 +8,7 @@ import LikeButton from '../like-button/like-button.component';
 import { likePost } from '../../redux/posts/posts.actions';
 
 const Post = ({ post, likePost }) => {
-	const { avatarUrl, author, imageUrl, description, liked } = post;
+	const { avatarUrl, author, imageUrl, description, liked, likes } = post;
 	return (
 		<div className='post'>
 			<div className='header'>
@@ -29,6 +29,7 @@ const Post = ({ post, likePost }) => {
 						className='like-button'
 						liked={liked}
 					/>
+					<p className='likes'>{likes} likes</p>
 				</div>
 				<p>
 					<span className='author'>{author}</span>

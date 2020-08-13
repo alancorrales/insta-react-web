@@ -31,9 +31,14 @@
 			}
 		}
 
-		.profile-picture {
-			border-radius: 50%;
-			width: 32px;
+		.profile-context {
+			position: relative;
+
+			.profile-picture {
+				border-radius: 50%;
+				width: 32px;
+				cursor: pointer;
+			}
 		}
 	}
 }

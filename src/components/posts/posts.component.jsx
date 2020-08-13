@@ -1,31 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './posts.styles.scss';
 
-const Post = ({ data }) => {
-	const { avatarUrl, author, imageUrl, description } = data;
+import Post from '../../components/post/post.component';
 
-	return (
-		<div className='card'>
-			<div className='header'>
-				<img
-					className='avatar'
-					width='32px'
-					height='32px'
-					src={avatarUrl}
-					alt='Profile avatar'
-				/>
-				<p>{author}</p>
-			</div>
-			<img width='614px' src={imageUrl} alt='Main content' />
-			<div className='footer'>
-				<p>
-					<span className='author'>{author}</span>
-					<span>{description}</span>
-				</p>
-			</div>
-		</div>
-	);
-};
+const Posts = ({ posts }) => (
+	<div className='posts'>
+		{posts.map((post) => (
+			<Post key={post.id} post={post} />
+		))}
+	</div>
+);
 
-export default Post;
+const mapStateToProps = ({ posts }) => ({
+	posts: posts.posts,
+});
+
+export default connect(mapStateToProps)(Posts);

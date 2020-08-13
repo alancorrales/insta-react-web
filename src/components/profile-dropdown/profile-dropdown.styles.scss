@@ -1,0 +1,35 @@
+.dropdown {
+	position: absolute;
+	top: 40px;
+	right: 0px;
+	width: 180px;
+	border-radius: 5px;
+	border: 1px solid lightgrey;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+
+	.dropdown-item {
+		display: flex;
+		padding: 8px;
+		text-decoration: none;
+
+		.profile-link {
+			margin-left: 8px;
+		}
+
+		&:focus,
+		&:hover,
+		&:visited,
+		&:link,
+		&:active {
+			text-decoration: none;
+			color: black;
+		}
+
+		&:hover {
+			background-color: lightgrey;
+			cursor: pointer;
+		}
+	}
+}

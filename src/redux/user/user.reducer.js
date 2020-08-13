@@ -3,8 +3,9 @@ import { generateUserPosts } from './user.utils';
 
 const INITIAL_STATE = {
     id: '1',
+    name: 'Alan Corrales',
     username: 'alancorrales_',
-    avatar: 'https://picsum.photos/32',
+    avatar: 'https://picsum.photos/150',
     followers: [
         '.',
         '..',

@@ -14,8 +14,21 @@
 		justify-content: space-between;
 		align-items: center;
 
-		.brand {
-			font-family: 'Lobster', cursive;
+		.brand-link {
+			text-decoration: none;
+
+			&:focus,
+			&:hover,
+			&:visited,
+			&:link,
+			&:active {
+				text-decoration: none;
+				color: black;
+			}
+
+			.brand-text {
+				font-family: 'Lobster', cursive;
+			}
 		}
 
 		.profile-picture {

@@ -27,7 +27,12 @@ const ProfilePage = ({
 		</div>
 		<div className='profile-posts'>
 			{posts.map((post) => (
-				<img className='profile-post' src={post.imageUrl} alt='post' />
+				<img
+					className='profile-post'
+					key={post.id}
+					src={post.imageUrl}
+					alt='post'
+				/>
 			))}
 		</div>
 	</div>

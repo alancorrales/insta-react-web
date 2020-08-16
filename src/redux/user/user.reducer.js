@@ -1,4 +1,5 @@
-import { generateUserPosts } from './user.utils';
+import { generateUserPosts, generateUserContacts } from './user.utils';
+import faker from 'faker';
 
 
 const INITIAL_STATE = {
@@ -6,16 +7,8 @@ const INITIAL_STATE = {
     name: 'Alan Corrales',
     username: 'alancorrales_',
     avatar: 'https://picsum.photos/150',
-    followers: [
-        '.',
-        '..',
-        '...'
-    ],
-    following: [
-        '.',
-        '..',
-        '...'
-    ],
+    followers: generateUserContacts(faker.random.number(100)),
+    following: generateUserContacts(faker.random.number(100), true),
     posts: generateUserPosts(7)
 }
 

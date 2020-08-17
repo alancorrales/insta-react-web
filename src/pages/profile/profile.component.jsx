@@ -1,42 +1,66 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Modal from '@material-ui/core/Modal';
 
 import './profile.styles.scss';
+import FollowersList from '../../components/followers-list/followers-list.component';
 
 const ProfilePage = ({
 	user: { username, name, avatar, followers, following, posts },
-}) => (
-	<div className='container'>
-		<div className='profile'>
-			<img className='image' src={avatar} alt='profile' />
-			<div className='user-info'>
-				<h3 className='username'>{username}</h3>
-				<div className='stats'>
-					<p>
-						<span className='bold'>{posts.length}</span> posts
-					</p>
-					<p>
-						<span className='bold'>{followers.length}</span> followers
-					</p>
-					<p>
-						<span className='bold'>{following.length}</span> following
-					</p>
+}) => {
+	const [open, setOpen] = React.useState(false);
+
+	const handleOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
+
+	return (
+		<div className='container'>
+			<div className='profile'>
+				<img className='image' src={avatar} alt='profile' />
+				<div className='user-info'>
+					<h3 className='username'>{username}</h3>
+					<div className='stats'>
+						<p>
+							<span className='bold'>{posts.length}</span> posts
+						</p>
+						<p className='follower-stat' onClick={handleOpen}>
+							<span className='bold'>{followers.length}</span> followers
+						</p>
+						<p className='following-stat'>
+							<span className='bold'>{following.length}</span> following
+						</p>
+					</div>
+					<h4>{name}</h4>
 				</div>
-				<h4>{name}</h4>
 			</div>
+			<div className='profile-posts'>
+				{posts.map((post) => (
+					<img
+						className='profile-post'
+						key={post.id}
+						src={post.imageUrl}
+						alt='post'
+					/>
+				))}
+			</div>
+
+			<Modal
+				className='modal'
+				open={open}
+				onClose={handleClose}
+				aria-labelledby='Followers list'
+				aria-describedby='List of users that follow your profile'
+			>
+				<FollowersList />
+			</Modal>
 		</div>
-		<div className='profile-posts'>
-			{posts.map((post) => (
-				<img
-					className='profile-post'
-					key={post.id}
-					src={post.imageUrl}
-					alt='post'
-				/>
-			))}
-		</div>
-	</div>
-);
+	);
+};
 const mapStateToProps = (state) => ({
 	user: state.user,
 });

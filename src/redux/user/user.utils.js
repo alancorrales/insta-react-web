@@ -31,13 +31,13 @@ export const generateUserContacts = (n = 10, generatingFollowing = false) => {
         const firstName = fullName.split(' ')[0];
         const lastName = fullName.split(' ')[-1];
         const username = faker.internet.email(firstName, lastName).split('@')[0];
-        const followsBack = generatingFollowing ? faker.random.boolean() : true;
+        const following = generatingFollowing ? true : faker.random.boolean();
         contacts.push({
             id: uniqueID,
             name: fullName,
             username,
-            avatar: 'https://picsum.photos/150',
-            followsBack,
+            avatar: `https://picsum.photos/600?random=${uniqueID}`,
+            following,
         });
     }
 

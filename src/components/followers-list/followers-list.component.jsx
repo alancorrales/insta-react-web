@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './followers-list.styles.scss';
+import CustomButton from '../custom-button/custom-button.component';
 
 const FollowersList = ({ followers }) => {
 	return (
@@ -19,7 +20,9 @@ const FollowersList = ({ followers }) => {
 								<p className='name'>{name}</p>
 							</div>
 						</div>
-						<button className='follow'></button>
+						<CustomButton type='button' active={following}>
+							{following ? 'Following' : 'Follow'}
+						</CustomButton>
 					</div>
 				))}
 			</section>

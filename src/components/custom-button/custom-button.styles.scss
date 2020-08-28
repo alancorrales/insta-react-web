@@ -1,0 +1,17 @@
+.custom-button {
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+
+	&.active {
+		color: black;
+		background-color: white;
+		border: 1px solid black;
+	}
+
+	&.inactive {
+		color: white;
+		background-color: black;
+		border: 1px solid black;
+	}
+}

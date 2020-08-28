@@ -1,0 +1,3 @@
+export const UserActionTypes = {
+    TOGGLE_FOLLOW_ON_FOLLOWER: 'TOGGLE_FOLLOW_ON_FOLLOWER'
+}

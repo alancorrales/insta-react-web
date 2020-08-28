@@ -1,6 +1,13 @@
-import { generateUserPosts, generateUserContacts } from './user.utils';
 import faker from 'faker';
 
+import { UserActionTypes } from './user.types';
+
+import {
+    generateUserPosts,
+    generateUserContacts,
+    updateFollowerOnToggleFollow,
+    updateFollowingOnToggleFollow
+} from './user.utils';
 
 const INITIAL_STATE = {
     id: '1',
@@ -15,6 +22,12 @@ const INITIAL_STATE = {
 
 const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
+        case UserActionTypes.TOGGLE_FOLLOW_ON_FOLLOWER:
+            return {
+                ...state,
+                followers: updateFollowerOnToggleFollow(state.followers, action.payload),
+                following: updateFollowingOnToggleFollow(state.following, action.payload)
+            };
         default:
             return state;
     }

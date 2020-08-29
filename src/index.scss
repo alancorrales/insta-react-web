@@ -1,0 +1,41 @@
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+		Arial, sans-serif;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+	list-style: none;
+}
+
+.modal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: auto;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 1px grey;
+	border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: black;
+	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: black;
+}

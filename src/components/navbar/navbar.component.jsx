@@ -7,7 +7,15 @@ import './navbar.styles.scss';
 import ProfileDropdown from './../profile-dropdown/profile-dropdown.component';
 
 const Navbar = ({ user }) => {
-	const [dropdownHidden, setDropdownHidden] = useState(true);
+	const [anchorEl, setAnchorEl] = useState(null);
+
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
 
 	return (
 		<nav className='navbar'>
@@ -20,9 +28,11 @@ const Navbar = ({ user }) => {
 						className='profile-picture'
 						src={user.avatar}
 						alt='profile'
-						onClick={() => setDropdownHidden(!dropdownHidden)}
+						aria-controls='profile-menu'
+						aria-haspopup='true'
+						onClick={handleClick}
 					/>
-					{dropdownHidden ? null : <ProfileDropdown />}
+					<ProfileDropdown anchorEl={anchorEl} handleClose={handleClose} />
 				</div>
 			</div>
 		</nav>

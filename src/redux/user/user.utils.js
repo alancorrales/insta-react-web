@@ -44,21 +44,12 @@ export const generateUserContacts = (n = 10, generatingFollowing = false) => {
     return contacts;
 };
 
-export const updateFollowerOnToggleFollow = (followers, followerUser) => {
-    return followers.map((follower) => follower.id !== followerUser.id ? {
-        ...follower
-    } : {
-            ...follower,
-            following: !followerUser.following
-        });
-}
+export const toggleFollowFromFollowers = (followers, user) => (
+    followers.map((follower) => follower.id !== user.id ?
+        { ...follower } :
+        { ...follower, following: !user.following }))
 
-export const updateFollowingOnToggleFollow = (followingUsers, followingUser) => {
-    const willFollow = !followingUser.following;
-
-    if (willFollow) {
-        return [...followingUsers, followingUser];
-    } else {
-        return followingUsers.filter(({ id }) => id !== followingUser.id);
-    }
-}
+export const toggleFollowFromFollowing = (followingList, user) => (
+    user.following ?
+        followingList.filter(({ id }) => id !== user.id) :
+        [...followingList, user])

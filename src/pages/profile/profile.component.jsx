@@ -4,18 +4,28 @@ import Modal from '@material-ui/core/Modal';
 
 import './profile.styles.scss';
 import FollowersList from '../../components/followers-list/followers-list.component';
+import FollowingList from './../../components/following-list/following-list.component';
 
 const ProfilePage = ({
 	user: { username, name, avatar, followers, following, posts },
 }) => {
-	const [open, setOpen] = React.useState(false);
+	const [showFollowers, setShowFollowers] = React.useState(false);
+	const [showFollowing, setShowFollowing] = React.useState(false);
 
-	const handleOpen = () => {
-		setOpen(true);
+	const handleShowFollowers = () => {
+		setShowFollowers(true);
 	};
 
-	const handleClose = () => {
-		setOpen(false);
+	const handleHideFollowers = () => {
+		setShowFollowers(false);
+	};
+
+	const handleShowFollowing = () => {
+		setShowFollowing(true);
+	};
+
+	const handleHideFollowing = () => {
+		setShowFollowing(false);
 	};
 
 	return (
@@ -28,10 +38,10 @@ const ProfilePage = ({
 						<p>
 							<span className='bold'>{posts.length}</span> posts
 						</p>
-						<p className='follower-stat' onClick={handleOpen}>
+						<p className='follower-stat' onClick={handleShowFollowers}>
 							<span className='bold'>{followers.length}</span> followers
 						</p>
-						<p className='following-stat'>
+						<p className='following-stat' onClick={handleShowFollowing}>
 							<span className='bold'>{following.length}</span> following
 						</p>
 					</div>
@@ -51,12 +61,22 @@ const ProfilePage = ({
 
 			<Modal
 				className='modal'
-				open={open}
-				onClose={handleClose}
+				open={showFollowers}
+				onClose={handleHideFollowers}
 				aria-labelledby='Followers list'
 				aria-describedby='List of users that follow your profile'
 			>
 				<FollowersList />
+			</Modal>
+
+			<Modal
+				className='modal'
+				open={showFollowing}
+				onClose={handleHideFollowing}
+				aria-labelledby='Following list'
+				aria-describedby='List of users that you follow'
+			>
+				<FollowingList />
 			</Modal>
 		</div>
 	);

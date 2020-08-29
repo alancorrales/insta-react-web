@@ -1,0 +1,54 @@
+.following-list {
+	width: 500px;
+	background: white;
+	display: flex;
+	flex-direction: column;
+	border-radius: 15px;
+
+	.header {
+		border-bottom: 1px solid lightgrey;
+		display: flex;
+		justify-content: center;
+		padding: 24px;
+	}
+
+	.body {
+		display: flex;
+		flex-direction: column;
+		max-height: 75vh;
+		overflow: auto;
+		padding: 8px 16px;
+
+		.following-row {
+			padding: 8px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.following {
+				display: flex;
+				align-items: center;
+
+				.avatar {
+					border-radius: 50%;
+					width: 32px;
+					height: 32px;
+					margin-right: 8px;
+				}
+
+				.handle {
+					display: flex;
+					flex-direction: column;
+
+					.username {
+						font: bold;
+					}
+
+					.name {
+						font-weight: lighter;
+					}
+				}
+			}
+		}
+	}
+}

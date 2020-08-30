@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import TextClamp from 'react-string-clamp';
 
 import './post.styles.scss';
 
@@ -31,10 +32,9 @@ const Post = ({ post, likePost }) => {
 					/>
 					<p className='likes'>{likes} likes</p>
 				</div>
-				<p>
-					<span className='author'>{author}</span>
-					<span>{description}</span>
-				</p>
+				<p className='author'>{author}</p>
+				<TextClamp className='text' text={description} lines='3' element='p' />
+				<p className='view-comments'>View all 10 comments</p>
 			</div>
 		</div>
 	);

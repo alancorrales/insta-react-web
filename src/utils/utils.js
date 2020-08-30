@@ -7,15 +7,42 @@ export const generateRandomPosts = (n = 10) => {
         posts.push({
             id: i,
             avatarUrl: faker.image.avatar(),
-            author: faker.internet.userName(),
+            author: getUsername(),
             imageUrl: `https://picsum.photos/600?random=${i}`,
             description: faker.lorem.sentences(),
             liked: false,
-            likes: Math.trunc(Math.random() * 10)
+            likes: faker.random.number(100),
+            comments: generateRandomComments(faker.random.number(30))
         });
     }
 
     return posts;
+}
+
+export const generateRandomComments = (n = 10) => {
+    const comments = [];
+    let likesPerComment = [];
+
+    for (let i = 0; i < n; i++) {
+        likesPerComment.push(faker.random.number(100));
+    }
+
+    likesPerComment = likesPerComment.sort((a, b) => b - a);
+
+    for (let i = 0; i < n; i++) {
+        comments.push({
+            id: faker.random.uuid(),
+            avatarUrl: faker.image.avatar(),
+            author: getUsername(),
+            description: faker.hacker.phrase(),
+            liked: false,
+            likes: likesPerComment[i],
+        });
+    }
+
+    console.log(comments);
+
+    return comments;
 }
 
 export const generateUserPosts = (n = 10, avatarUrl, username) => {
@@ -46,14 +73,11 @@ export const generateUserContacts = (n = 10, generatingFollowing = false) => {
     for (let i = 0; i < n; i++) {
         const uniqueID = faker.random.uuid();
         const fullName = faker.name.findName();
-        const firstName = fullName.split(' ')[0];
-        const lastName = fullName.split(' ')[-1];
-        const username = faker.internet.email(firstName, lastName).split('@')[0];
         const following = generatingFollowing ? true : faker.random.boolean();
         contacts.push({
             id: uniqueID,
             name: fullName,
-            username,
+            username: getUsername(fullName),
             avatar: `https://picsum.photos/600?random=${uniqueID}`,
             following,
         });
@@ -61,3 +85,15 @@ export const generateUserContacts = (n = 10, generatingFollowing = false) => {
 
     return contacts;
 };
+
+
+export const getUsername = (fullName) => {
+    const _fullName = fullName ? fullName : faker.name.findName();
+
+    const firstName = _fullName.split(' ')[0];
+    const lastName = _fullName.split(' ')[-1];
+    const username = faker.internet.email(firstName, lastName).split('@')[0].toLowerCase().replace('.', '');
+
+    return username
+
+}

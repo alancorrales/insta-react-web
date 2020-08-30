@@ -18,7 +18,7 @@ const INITIAL_STATE = {
     id: '1',
     name: 'Alan Corrales',
     username: 'alancorrales_',
-    avatar: 'https://picsum.photos/150',
+    avatar: faker.image.avatar(),
     followers,
     following: followers.filter((follower) => follower.following)
         .concat(generateUserContacts(faker.random.number(50), true)),

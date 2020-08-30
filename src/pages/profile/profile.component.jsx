@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Modal from '@material-ui/core/Modal';
 
 import './profile.styles.scss';
+
 import FollowersList from '../../components/followers-list/followers-list.component';
 import FollowingList from './../../components/following-list/following-list.component';
 

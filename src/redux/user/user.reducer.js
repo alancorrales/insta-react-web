@@ -3,11 +3,14 @@ import faker from 'faker';
 import { UserActionTypes } from './user.types';
 
 import {
-    generateUserPosts,
-    generateUserContacts,
     toggleFollowFromFollowers,
     toggleFollowFromFollowing,
 } from './user.utils';
+
+import {
+    generateUserPosts,
+    generateUserContacts,
+} from '../../utils/utils'
 
 const followers = generateUserContacts(faker.random.number(50));
 

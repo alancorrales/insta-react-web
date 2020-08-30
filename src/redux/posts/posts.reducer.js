@@ -1,8 +1,9 @@
-import { generatePosts } from './posts.utils';
 import { PostsActionTypes } from './posts.types';
 
+import { generateRandomPosts } from '../../utils/utils'
+
 const INITIAL_STATE = {
-    posts: generatePosts()
+    posts: generateRandomPosts()
 }
 
 const postsReducer = (state = INITIAL_STATE, action) => {

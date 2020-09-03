@@ -1,0 +1,57 @@
+.comments {
+	width: 600px;
+	background: white;
+	display: flex;
+	flex-direction: column;
+	border-radius: 15px;
+
+	.header {
+		border-bottom: 1px solid lightgrey;
+		display: flex;
+		justify-content: center;
+		padding: 24px;
+	}
+
+	.body {
+		display: flex;
+		flex-direction: column;
+		max-height: 75vh;
+		overflow: auto;
+		padding: 8px 16px;
+
+		.comment-section {
+			padding: 8px;
+			display: flex;
+
+			.user-data {
+				display: flex;
+				align-items: center;
+				margin-right: 16px;
+
+				.avatar {
+					border-radius: 50%;
+					width: 32px;
+					height: 32px;
+				}
+			}
+
+			.comment-data {
+				flex: 1;
+				margin-right: 16px;
+
+				.author {
+					font-weight: bold;
+				}
+
+				.num-likes {
+					color: grey;
+				}
+			}
+
+			.like-button {
+				margin-left: auto;
+				width: 18px;
+			}
+		}
+	}
+}

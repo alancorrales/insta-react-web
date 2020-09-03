@@ -8,6 +8,7 @@ import './post.styles.scss';
 import LikeButton from '../like-button/like-button.component';
 
 import { likePost } from '../../redux/posts/posts.actions';
+import Comments from '../comments/comments.component';
 
 const Post = ({ post, likePost }) => {
 	const [showComments, setShowComments] = React.useState(false);
@@ -53,7 +54,12 @@ const Post = ({ post, likePost }) => {
 					<p className='likes'>{likes} likes</p>
 				</div>
 				<p className='author'>{author}</p>
-				<TextClamp className='text' text={description} lines='3' element='p' />
+				<TextClamp
+					className='text'
+					text={description}
+					lines='3'
+					element='p'
+				/>
 				{comments.length > 0 ? (
 					<p className='view-comments' onClick={handleShowComments}>
 						View all {comments.length} comments
@@ -67,7 +73,7 @@ const Post = ({ post, likePost }) => {
 				aria-labelledby='Users comments'
 				aria-describedby='List of users comments for this post'
 			>
-				<p>Hello world!</p>
+				<Comments comments={comments} />
 			</Modal>
 		</div>
 	);

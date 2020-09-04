@@ -73,7 +73,7 @@ const Post = ({ post, likePost }) => {
 				aria-labelledby='Users comments'
 				aria-describedby='List of users comments for this post'
 			>
-				<Comments comments={comments} />
+				<Comments post={post} comments={comments} />
 			</Modal>
 		</div>
 	);

@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './comments.styles.scss';
 
 import LikeButton from '../like-button/like-button.component';
 
-const Comments = ({ comments }) => (
+import { likeComment } from '../../redux/posts/posts.actions';
+
+const Comments = ({ comments, post, likeComment }) => (
 	<div className='comments'>
 		<section className='header'>
 			<h4>Comments</h4>
@@ -36,8 +39,11 @@ const Comments = ({ comments }) => (
 							</p>
 							<p className='num-likes'>{likes} likes</p>
 						</div>
-						<LikeButton className='like-button' liked={liked} />
-						{/* onClick={() => likePost(post)} */}
+						<LikeButton
+							className='like-button'
+							liked={liked}
+							onClick={() => likeComment(post, comment.id)}
+						/>
 
 						{/* <CustomButton
 							onClick={() => toggleFollow(follower)}
@@ -53,4 +59,8 @@ const Comments = ({ comments }) => (
 	</div>
 );
 
-export default Comments;
+const mapDispatchToProps = (dispatch) => ({
+	likeComment: (post, commentID) => dispatch(likeComment(post, commentID)),
+});
+
+export default connect(null, mapDispatchToProps)(Comments);

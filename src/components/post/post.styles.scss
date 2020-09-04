@@ -1,0 +1,47 @@
+.post {
+	border: 1px solid lightgrey;
+	width: 614px;
+	margin-bottom: 32px;
+
+	.header {
+		display: flex;
+		align-items: center;
+		padding: 8px 16px;
+
+		.avatar {
+			border-radius: 50%;
+			margin-right: 16px;
+		}
+	}
+
+	.image {
+		width: 100%;
+	}
+
+	.footer {
+		padding: 16px;
+		width: 612px;
+
+		.action-icons {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 16px;
+		}
+
+		.author {
+			font-weight: bold;
+			margin-right: 8px;
+			margin-bottom: 10px;
+		}
+
+		.text {
+			margin-bottom: 10px;
+		}
+
+		.view-comments {
+			cursor: pointer;
+			color: grey;
+		}
+	}
+}

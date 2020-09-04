@@ -1,0 +1,44 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	border-bottom: 1px solid #dbdbdb;
+	margin-bottom: 32px;
+	height: 48px;
+	width: 100%;
+
+	.navbar-content {
+		width: 614px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.brand-link {
+			text-decoration: none;
+
+			&:focus,
+			&:hover,
+			&:visited,
+			&:link,
+			&:active {
+				text-decoration: none;
+				color: black;
+			}
+
+			.brand-text {
+				font-family: 'Lobster', cursive;
+			}
+		}
+
+		.profile-context {
+			position: relative;
+
+			.profile-picture {
+				border-radius: 50%;
+				width: 32px;
+				cursor: pointer;
+			}
+		}
+	}
+}

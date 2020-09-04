@@ -1,34 +1,21 @@
 import React, { Component } from 'react';
-import './App.css';
-import Post from './post/Post'
-import Navbar from './navbar/Navbar'
-import { generateFakePost } from './utils'
+import { Switch, Route } from 'react-router-dom';
 
-const NUMBER_OF_POSTS = 10;
+import Navbar from './components/navbar/navbar.component';
+import HomePage from './pages/home/home.component';
+import ProfilePage from './pages/profile/profile.component';
+
 
 class App extends Component {
 
-  state = {
-    posts: []
-  }
-
-  componentDidMount() {
-    const posts = [];
-
-    for (let i = 0; i < NUMBER_OF_POSTS; i++) {
-      posts.push(generateFakePost(i))
-    }
-
-    this.setState({ posts });
-  }
-
   render() {
     return (
-      <div className='Container'>
+      <div>
         <Navbar />
-        <div className='Posts'>
-          {this.state.posts.map((post, i) => <Post key={i} data={post} />)}
-        </div>
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/profile' component={ProfilePage} />
+        </Switch>
       </div>
     );
   }

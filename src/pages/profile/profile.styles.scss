@@ -1,0 +1,57 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.profile {
+		display: flex;
+		align-items: center;
+		width: 614px;
+		margin-bottom: 64px;
+
+		.image {
+			border-radius: 50%;
+			margin-right: 64px;
+		}
+
+		.user-info {
+			display: flex;
+			flex-direction: column;
+
+			.username {
+				margin-bottom: 16px;
+			}
+
+			.stats {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 16px;
+
+				.follower-stat,
+				.following-stat {
+					cursor: pointer;
+				}
+
+				.bold {
+					font-weight: bold;
+				}
+			}
+
+			.stats p {
+				margin-right: 32px;
+			}
+		}
+	}
+
+	.profile-posts {
+		width: 614px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 8px;
+		margin-bottom: 32px;
+
+		.profile-post {
+			max-width: 100%;
+		}
+	}
+}

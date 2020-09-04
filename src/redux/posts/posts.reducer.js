@@ -1,6 +1,6 @@
 import { PostsActionTypes } from './posts.types';
 
-import { generateRandomPosts } from '../../utils/utils';
+import { generateRandomPosts, generateFakeUniqueID } from '../../utils/utils';
 
 const INITIAL_STATE = {
 	posts: generateRandomPosts(),
@@ -47,6 +47,26 @@ const postsReducer = (state = INITIAL_STATE, action) => {
 						return { ...post };
 					}
 				}),
+			};
+		case PostsActionTypes.ADD_COMMENT:
+			return {
+				...state,
+				posts: state.posts.map((post) =>
+					post.id === action.payload.post.id
+						? {
+								...post,
+								comments: [
+									...post.comments,
+									{
+										...action.payload.comment,
+										id: generateFakeUniqueID(),
+										liked: false,
+										likes: 0,
+									},
+								],
+						  }
+						: { ...post }
+				),
 			};
 		default:
 			return state;

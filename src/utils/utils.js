@@ -95,3 +95,5 @@ export const getUsername = (fullName) => {
     return username
 
 }
+
+export const generateFakeUniqueID = () => faker.random.uuid()

@@ -20,6 +20,7 @@
 
 	.footer {
 		padding: 16px;
+		width: 612px;
 
 		.action-icons {
 			display: flex;
@@ -31,6 +32,16 @@
 		.author {
 			font-weight: bold;
 			margin-right: 8px;
+			margin-bottom: 10px;
+		}
+
+		.text {
+			margin-bottom: 10px;
+		}
+
+		.view-comments {
+			cursor: pointer;
+			color: grey;
 		}
 	}
 }

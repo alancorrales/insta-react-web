@@ -54,4 +54,16 @@
 			}
 		}
 	}
+
+	.footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 16px;
+
+		.comment-input-container {
+			margin-right: 16px;
+			flex: 1;
+		}
+	}
 }

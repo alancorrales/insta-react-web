@@ -40,8 +40,6 @@ export const generateRandomComments = (n = 10) => {
         });
     }
 
-    console.log(comments);
-
     return comments;
 }
 
